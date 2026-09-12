@@ -61,7 +61,11 @@
   .tag{flex-shrink:0;font-size:11px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
     color:var(--coral);background:#FFECE6;padding:5px 10px;border-radius:999px;}
   .tag.paid{color:#7a5b00;background:#FCEFC2;} .tag.soon-tag{color:#726a78;background:#e2dde5;}
-  .tag.new{color:#fff;background:var(--coral);}
+  .tag.new{color:#fff;background:var(--coral);font-size:13px;letter-spacing:1.2px;
+    padding:9px 18px;border-radius:999px;box-shadow:0 4px 14px rgba(255,106,77,.45);
+    animation:newpulse 2.2s ease-in-out infinite;}
+  @keyframes newpulse{0%,100%{transform:scale(1);box-shadow:0 4px 14px rgba(255,106,77,.45);}
+    50%{transform:scale(1.06);box-shadow:0 6px 20px rgba(255,106,77,.6);}}
   a.card.fresh{border-left-color:var(--coral);box-shadow:0 12px 30px rgba(255,106,77,.22);}
   .arrow{color:var(--coral);font-size:21px;font-weight:700;flex-shrink:0;}
   footer{text-align:center;color:#9AA3C8;font-size:14px;line-height:1.6;
