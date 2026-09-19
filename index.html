@@ -73,6 +73,44 @@
   footer a{color:#fff;text-decoration:none;border-bottom:1px solid var(--coral);}
   .heart{color:#ffb36a;}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1063459929895495');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1063459929895495&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Guide click tracking: free guide = Lead, paid = InitiateCheckout -->
+<script>
+document.addEventListener('click', function (e) {
+  var a = e.target && e.target.closest ? e.target.closest('a.card') : null;
+  if (!a || !a.href) return;
+  if (!/gumroad\.com|payhip\.com/.test(a.href)) return;
+  if (typeof fbq !== 'function') return;
+
+  var titleEl = a.querySelector('.title');
+  var tagEl   = a.querySelector('.tag');
+  var name    = titleEl ? titleEl.textContent.trim() : a.href;
+  var tag     = tagEl ? tagEl.textContent.trim() : '';
+  var paid    = /\$/.test(tag) || /guide/i.test(tag);
+
+  fbq('track', paid ? 'InitiateCheckout' : 'Lead', {
+    content_name: name,
+    content_category: paid ? 'Paid guide' : 'Free guide',
+    store: /payhip/.test(a.href) ? 'Payhip' : 'Gumroad'
+  });
+}, true);
+</script>
 </head>
 <body>
   <div class="page">
