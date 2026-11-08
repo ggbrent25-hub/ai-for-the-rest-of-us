@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>One Less Thing — AI for the Rest of Us</title>
+<meta name="description" content="Ten plain-English AI prompts that plan your Thanksgiving dinner and your Christmas list. Tap to copy. Free, like the other sixteen.">
+<meta property="og:title" content="One Less Thing">
+<meta property="og:description" content="Let AI plan your Thanksgiving dinner and your Christmas list. Ten prompts, tap to copy.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>🎁</text></svg>">
+<style>
+:root{
+  --coral:#FF6A4D; --amber:#F5A623; --blue:#3D6FE0; --mauve:#A85A78; --teal:#2FA39A;
+  --ink:#1E2540; --body:#3A4055; --muted:#8A93A6; --deep:#141C38; --navy:#1B2447;
+  --peach:#FFF0EB; --ambert:#FFF6E6; --bluet:#EDF2FD; --mauvet:#F7ECF1; --tealt:#E7F5F3;
+  --paper:#FFFCF8; --line:#ECE4DC; --pine:#2E7D5B; --berry:#D8453F; --rust:#C85A33; --gold:#D9A02B;
+  --max:720px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--body);
+  font:400 17px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  overflow-x:hidden;
+}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+h1,h2,h3{color:var(--ink); line-height:1.2; letter-spacing:-.015em; text-wrap:balance}
+p{margin:0 0 1.05em}
+strong{color:var(--ink)}
+em{color:var(--ink)}
+
+/* ───────── hero ───────── */
+.hero{background:var(--deep); color:#fff; position:relative; overflow:hidden; padding:0 0 46px}
+.hero .wrap{position:relative; z-index:2}
+.bar{height:9px; background:var(--coral)}
+.garland{display:block; width:100%; height:86px; margin-bottom:-6px}
+.kick{letter-spacing:.3em; font-size:11px; font-weight:800; color:var(--coral); text-transform:uppercase; margin:10px 0 14px}
+.hero h1{font-size:clamp(42px,12vw,68px); color:#fff; margin:0 0 18px; letter-spacing:-.03em; line-height:.98}
+.rule{width:58px; height:4px; background:var(--amber); border-radius:2px; margin:0 0 18px}
+.hero .sub{font-size:clamp(17px,4.4vw,21px); color:#C9D2E8; font-style:italic; margin:0 0 26px; max-width:30ch}
+.pills{display:flex; gap:9px; flex-wrap:wrap}
+.pill{background:#1D2847; color:#AFBAD4; font-size:12.5px; font-weight:700; letter-spacing:.06em;
+      padding:8px 14px; border-radius:99px; text-transform:uppercase}
+.pill b{color:var(--amber)}
+.leaves{display:block; width:100%; height:64px; margin-top:28px}
+
+/* ───────── sections ───────── */
+section{padding:42px 0}
+.lede{font-size:19px; color:var(--ink)}
+h2{font-size:clamp(25px,6.4vw,33px); margin:0 0 .55em}
+h3{font-size:20px; margin:2em 0 .5em}
+.band{background:var(--deep); color:#fff; padding:40px 0 36px; margin:14px 0 0; position:relative; overflow:hidden}
+.band h2{color:#fff; margin-bottom:.3em}
+.band p{color:#AFBAD4; margin:0}
+.band .kick{margin-top:0}
+
+.two{display:grid; grid-template-columns:1fr; gap:12px; margin:22px 0 26px}
+@media(min-width:620px){.two{grid-template-columns:1fr 1fr}}
+.tile{display:flex; gap:14px; align-items:center; padding:16px 18px; border-radius:14px}
+.tile.a{background:var(--peach)} .tile.b{background:var(--tealt)}
+.tile svg{flex:0 0 40px}
+.tile span{font-size:15.5px; line-height:1.4; color:var(--ink)}
+
+.note{background:var(--bluet); border-radius:14px; padding:18px 20px; margin:26px 0;
+      font-weight:700; color:var(--navy); font-size:18px; display:flex; gap:14px; align-items:center}
+.note svg{flex:0 0 26px}
+.note.warn{background:#FFF4F1}
+.note.good{background:#E8F3ED}
+
+/* ───────── prompt cards ───────── */
+.prompt{border-radius:16px; padding:0; margin:26px 0; overflow:hidden; border:1px solid transparent}
+.prompt header{display:flex; align-items:center; gap:11px; padding:14px 16px}
+.num{width:28px; height:28px; border-radius:50%; display:grid; place-items:center;
+     color:#fff; font-weight:800; font-size:13px; flex:0 0 28px}
+.plabel{font-size:12px; font-weight:800; letter-spacing:.12em; text-transform:uppercase}
+.ptext{margin:0; padding:0 16px 16px; white-space:pre-wrap; font-size:15px; line-height:1.56;
+       color:var(--ink); font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+       font-size:14.5px}
+.copy{appearance:none; border:0; width:calc(100% - 32px); margin:0 16px 16px; padding:14px;
+      border-radius:11px; font:800 15px/1 inherit; letter-spacing:.02em; color:#fff;
+      cursor:pointer; display:flex; align-items:center; justify-content:center; gap:9px;
+      transition:transform .1s ease, filter .15s ease}
+.copy:active{transform:scale(.985)}
+.copy.done{background:var(--pine)!important}
+.copy svg{width:16px;height:16px;flex:0 0 16px}
+
+.c-coral{background:var(--peach)} .c-coral .num,.c-coral .copy{background:var(--coral)} .c-coral .plabel{color:var(--coral)}
+.c-blue{background:var(--bluet)}  .c-blue .num,.c-blue .copy{background:var(--blue)}   .c-blue .plabel{color:var(--blue)}
+.c-mauve{background:var(--mauvet)}.c-mauve .num,.c-mauve .copy{background:var(--mauve)}.c-mauve .plabel{color:var(--mauve)}
+.c-teal{background:var(--tealt)}  .c-teal .num,.c-teal .copy{background:var(--teal)}   .c-teal .plabel{color:var(--teal)}
+.c-amber{background:var(--ambert)}.c-amber .num,.c-amber .copy{background:#C98512}     .c-amber .plabel{color:#C98512}
+
+/* ───────── cast ───────── */
+.cast{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin:24px 0}
+@media(min-width:620px){.cast{grid-template-columns:repeat(4,1fr)}}
+.who{background:#F5F2EE; border-radius:13px; padding:0 10px 13px; text-align:center; overflow:hidden}
+.who i{display:block; height:5px; margin:0 -10px 11px}
+.who b{display:block; font-size:14px; color:var(--ink); letter-spacing:.04em}
+.who span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
+
+/* ───────── timeline ───────── */
+.tl{margin:26px 0; border-left:2px solid var(--line); padding-left:0}
+.slot{display:grid; grid-template-columns:62px 1fr; gap:14px; align-items:start; margin-bottom:4px}
+.slot .t{font-weight:800; font-size:14px; color:var(--muted); text-align:right; padding-top:14px; letter-spacing:.02em}
+.slot .ev{background:#fff; border:1px solid var(--line); border-left:5px solid var(--muted);
+          border-radius:11px; padding:12px 14px; margin-bottom:9px}
+.slot .ev b{display:block; font-size:15px; color:var(--ink)}
+.slot .ev span{font-size:13.5px; color:var(--muted)}
+.slot.rest .ev{background:var(--peach); border-color:#F6D6CA; border-left-color:var(--coral)}
+.slot.eat .ev{background:#E8F3ED; border-color:#C9E2D4; border-left-color:var(--pine)}
+.ov{border-left-color:var(--amber)!important} .st{border-left-color:var(--teal)!important}
+.legend{display:flex; gap:16px; flex-wrap:wrap; font-size:13px; color:var(--muted); margin:-8px 0 20px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+/* ───────── msgs ───────── */
+.msgs{margin:20px 0}
+.msg{background:#E7F0E9; color:#20352A; border-radius:16px; padding:13px 16px; margin-bottom:8px;
+     font-size:15.5px; line-height:1.5; max-width:92%}
+.msg:last-child{border-bottom-left-radius:5px}
+
+/* ───────── outro ───────── */
+.outro{background:var(--deep); color:#AFBAD4; padding:44px 0; margin-top:20px; text-align:center}
+.outro h2{color:#fff; font-size:27px}
+.outro p{max-width:46ch; margin:0 auto 1em}
+.foot{text-align:center; padding:26px 0 40px; font-size:12.5px; letter-spacing:.16em;
+      color:var(--muted); text-transform:uppercase; font-weight:700}
+hr{border:0; border-top:1px solid var(--line); margin:36px 0}
+.printbar{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:13px 16px;margin:4px 0 6px;font-size:15px;color:var(--body);line-height:1.45}
+.printbar a{color:var(--coral);font-weight:800;text-decoration:none}
+.printbar a:hover{text-decoration:underline}
+.printbar svg{flex:0 0 22px}
+.toast{position:fixed; left:50%; bottom:22px; transform:translateX(-50%) translateY(140%);
+       background:var(--ink); color:#fff; padding:13px 22px; border-radius:99px; font-weight:700;
+       font-size:15px; z-index:99; transition:transform .25s cubic-bezier(.2,.8,.3,1);
+       box-shadow:0 8px 28px rgba(20,28,56,.3)}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<div class="bar"></div>
+<header class="hero">
+  <svg class="garland" viewBox="0 0 800 86" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-10 6 Q400 70 810 6" stroke="#2E7D5B" stroke-width="13" fill="none" stroke-linecap="round"/>
+    <path d="M-10 11 Q400 75 810 11" stroke="#3E9E72" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <g fill="#D8453F">
+      <circle cx="150" cy="37" r="5"/><circle cx="162" cy="42" r="5"/><circle cx="156" cy="30" r="5"/>
+      <circle cx="640" cy="37" r="5"/><circle cx="652" cy="42" r="5"/><circle cx="646" cy="30" r="5"/>
+    </g>
+    <g stroke="#D9A02B" stroke-width="2">
+      <line x1="300" y1="52" x2="300" y2="64"/><line x1="400" y1="60" x2="400" y2="76"/><line x1="505" y1="54" x2="505" y2="66"/>
+    </g>
+    <circle cx="300" cy="72" r="10" fill="#D8453F"/>
+    <circle cx="400" cy="84" r="12" fill="#D9A02B"/>
+    <circle cx="505" cy="74" r="10" fill="#9FC4D8"/>
+  </svg>
+  <div class="wrap">
+    <p class="kick">AI for the Rest of Us · Guide #17</p>
+    <h1>One Less<br>Thing</h1>
+    <div class="rule"></div>
+    <p class="sub">Let AI plan your Thanksgiving dinner and your Christmas list.</p>
+    <div class="pills">
+      <span class="pill"><b>10</b> prompts</span>
+      <span class="pill">Tap to copy</span>
+      <span class="pill">Free, always</span>
+    </div>
+  </div>
+  <svg class="leaves" viewBox="0 0 800 64" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <g opacity=".95">
+      <path d="M60 58 q22-14 0-34 q-22 20 0 34z" fill="#C85A33"/>
+      <path d="M120 60 q18-12 0-28 q-18 16 0 28z" fill="#D9A02B"/>
+      <path d="M700 58 q22-14 0-34 q-22 20 0 34z" fill="#D9A02B"/>
+      <path d="M752 60 q18-12 0-28 q-18 16 0 28z" fill="#C85A33"/>
+      <ellipse cx="180" cy="50" rx="11" ry="14" fill="#CF9353"/><rect x="170" y="32" width="20" height="8" rx="4" fill="#7E5330"/>
+      <ellipse cx="640" cy="50" rx="11" ry="14" fill="#CF9353"/><rect x="630" y="32" width="20" height="8" rx="4" fill="#7E5330"/>
+      <ellipse cx="400" cy="50" rx="20" ry="15" fill="#E8833A"/><rect x="396" y="29" width="8" height="10" rx="3" fill="#6B8F4E"/>
+    </g>
+  </svg>
+</header>
+
+<section class="wrap">
+  <h2>Two problems wearing one coat</h2>
+  <p class="lede">Every year, two things come for you at once. One is a list of people you love and a deadline. The other is a meal for fourteen that has to come out of one oven at the same minute.</p>
+  <div class="two">
+    <div class="tile a"><svg width="40" height="40" viewBox="0 0 40 40"><rect x="7" y="16" width="26" height="18" rx="2" fill="#FF6A4D"/><rect x="5" y="11" width="30" height="7" rx="2" fill="#FF6A4D"/><rect x="18" y="11" width="4" height="23" fill="#F5A623"/><circle cx="15" cy="9" r="4" fill="#F5A623"/><circle cx="25" cy="9" r="4" fill="#F5A623"/></svg><span><strong>A list of people you love</strong><br>and a deadline.</span></div>
+    <div class="tile b"><svg width="40" height="40" viewBox="0 0 40 40"><path d="M8 25a12 12 0 0124 0z" fill="#2FA39A"/><rect x="5" y="25" width="30" height="4" rx="2" fill="#2FA39A"/><circle cx="20" cy="11" r="2.4" fill="#2FA39A"/></svg><span><strong>A meal for fourteen</strong><br>out of one oven.</span></div>
+  </div>
+  <p>They feel like different problems. They are the same problem. Both of them are too much information, arriving at the wrong time, and none of it written down anywhere. Your sister-in-law told you exactly what she wanted — in August. Your cousin's gluten thing is real, not a preference, and you are going to remember that at 3:40 on Thursday with the oven already full.</p>
+  <p>That's not a shopping problem or a cooking problem. That's a remembering problem, and remembering is the one thing a computer will do for you without sighing.</p>
+  <div class="note"><svg viewBox="0 0 24 24" fill="#3D6FE0"><path d="M12 2l2.6 6.3L21 9l-4.8 4.2L17.7 20 12 16.6 6.3 20l1.5-6.8L3 9l6.4-.7z"/></svg><span>You don't need to understand AI. You need to know what to ask.</span></div>
+  <p>So: ten prompts. Tap the button under any of them and it's on your clipboard — then paste it straight into ChatGPT, Claude, Gemini, Copilot, whatever you already have. Free versions are fine. Swap in your own people.</p>
+  <p>And I'll tell you where it lies to you, because it does, and one of those lies involves a turkey.</p>
+  <div class="printbar"><svg viewBox="0 0 24 24" fill="none" stroke="#8A93A6" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="6"/><path d="M6 14H4a2 2 0 01-2-2V11a2 2 0 012-2h16a2 2 0 012 2v1a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg><span>Want it on paper? <a href="/One_Less_Thing.pdf">Download the printable PDF</a> — same guide, 16 designed pages.</span></div>
+</section>
+
+<div class="band"><div class="wrap">
+  <p class="kick">Part One</p>
+  <h2>The Christmas list</h2>
+  <p>Five prompts. Starts tonight, pays off every year after.</p>
+</div></div>
+
+<section class="wrap">
+  <h2>The gift you already knew about in August</h2>
+  <p>Here's the thing nobody admits about Christmas shopping: the buying was never the hard part.</p>
+  <p>In August, my sister-in-law Marilyn stood in my kitchen, held up my bread knife like it had personally insulted her, and said, &ldquo;I would honestly pay money for someone to sharpen my knives. Mine are terrible.&rdquo; She said it clearly. She said it twice. I even thought, <em>oh, that's a good one.</em></p>
+  <p>It is now November. That memory has been replaced by a jingle for a mattress company.</p>
+  <p>So on December 19th you will stand in a store holding a candle, doing the math on whether it's enough candle, and you will buy the candle. Not because you don't love Marilyn. Because the information was there and then it wasn't.</p>
+  <p>It's a memory problem wearing a shopping problem's coat. And it's the exact kind of problem AI is stupidly good at, because the only thing you have to do is talk, and the only thing it has to do is not forget.</p>
+
+  <h3>Start the notebook tonight, badly</h3>
+  <p>Open whichever AI chat you use. Start one conversation. Name it something you'll recognize in eleven months — &ldquo;Gift Notes&rdquo; is fine, you're not launching a brand. Then dump. Out loud, if your phone does voice. No complete sentences, no organizing.</p>
+
+  <article class="prompt c-coral">
+    <header><span class="num">01</span><span class="plabel">The gift notebook</span></header>
+    <p class="ptext">I'm starting a running gift notebook. I'm going to paste in messy, half-remembered notes about people in my life — things they mentioned wanting, complained about, broke, or got excited about. I may paste more throughout the year.
+
+For each note, organize it into a clean entry with: the person's name, what the clue was, roughly when I noticed it, and a one-line read on whether this points to a gift or is just a passing comment. Flag anything that's time-sensitive or might be out of stock later.
+
+Don't suggest gifts yet. I just want it captured and sorted. Ask me follow-up questions only if a note is too vague to be useful.
+
+Here's what I've got so far: [paste your notes]</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <p>That's the whole system. Nine minutes, and it's honestly the highest-return thing on this page — because next November you don't start from zero. You start from a list that <em>past you</em> wrote while you still remembered.</p>
+  <p>And hold onto Dale's meat thermometer. That one comes back.</p>
+
+  <h3>Stop asking for &ldquo;gift ideas for mom&rdquo;</h3>
+  <p>If you type that, you will get a weighted blanket, a photo calendar, and a spa day. Every time. Forever. The internet decided in 2016 that this is what mothers are. That's not AI's fault — you gave it nothing. Describe the person like you're describing her to a friend who's going to meet her next week.</p>
+
+  <article class="prompt c-blue">
+    <header><span class="num">02</span><span class="plabel">The specific person</span></header>
+    <p class="ptext">Help me find a gift for a specific person. Here's who she actually is:
+
+My mother, 74. Lives alone in a 1960s ranch house she refuses to leave and is probably right about. Retired bookkeeper — still balances her checkbook by hand and is smug about it. Reads two mysteries a week, mostly British, gets annoyed when they're "too gory." Keeps a bird feeder she monitors like air traffic control and has strong opinions about one specific squirrel. Drinks tea, not coffee. Her kitchen is small and she has told me she does not want one more thing on the counter. She hates being fussed over and will say "oh, you shouldn't have" and mean it as a mild accusation.
+
+Already owns: Kindle (uses it), slow cooker (doesn't), three throw blankets, a photo calendar from me in 2023 and 2024.
+
+Budget: $60–85.
+
+Give me 10 ideas. Rules:
+— No weighted blankets, no spa anything, no photo gifts.
+— At least three should be things she'd never buy herself but would use weekly.
+— At least two should take up no permanent counter or shelf space.
+— For each one, tell me in one sentence why it fits HER, not why it's a nice gift generally.
+— Then flag any that might read as "I think you're old" or "I think you need help." I want to avoid that completely.</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <p>That last instruction is worth more than the other ten combined. AI hears &ldquo;74&rdquo; and suggests a jar opener, a pill organizer, and a phone with big buttons. It isn't being cruel. It's averaging the internet, and the internet thinks anyone over seventy is one step from a stairlift. Tell it to knock that off. It will.</p>
+
+  <h3>Just say the number</h3>
+  <p>Budget is where people get weird. They either ignore it and flinch in January, or they lead with it and feel cheap. Say the number — &ldquo;my budget is $40&rdquo; is not a confession. Then add the part that actually matters:</p>
+  <div class="note" style="background:var(--ambert)"><svg viewBox="0 0 24 24" fill="#F5A623"><path d="M12 2l2.6 6.3L21 9l-4.8 4.2L17.7 20 12 16.6 6.3 20l1.5-6.8L3 9l6.4-.7z"/></svg><span>I want this to feel chosen, not cheap. Weight specificity over price.</span></div>
+  <p>A $22 gift that is obviously, unmistakably for that one person lands harder than an $80 gift that could have gone to anyone with a torso. Marilyn's knife sharpening is thirty bucks. It's also the best gift she gets.</p>
+
+  <article class="prompt c-mauve">
+    <header><span class="num">03</span><span class="plabel">Uneven budgets, even feeling</span></header>
+    <p class="ptext">I'm buying for 11 people this year with a total budget of $600, and the amounts per person are not equal — some are $100, some are $25. I want the gifts to feel consistent in thoughtfulness even though they're inconsistent in price, so nobody is doing math.
+
+Here's my list with names, a few details about each, and what I can spend on each one: [paste]
+
+For each person, suggest 2 options in their range. Then tell me honestly: looking at these side by side, would anyone's gift look noticeably thinner than the others? If so, tell me which one and how to fix it — either a different item, or something I could add that costs little but raises the feel.
+
+Also tell me if my total is actually realistic, or if I need to drop someone to a card.</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <h3>For the people you genuinely do not know</h3>
+  <p>The office exchange. My daughter's fiancé Kev, whom I have met twice and whose entire known personality is &ldquo;owns a lot of hoodies.&rdquo; The $20 Secret Santa where you drew Deb from accounting and all you know is that she has a water bottle with her name on it.</p>
+
+  <article class="prompt c-teal">
+    <header><span class="num">04</span><span class="plabel">The rescue prompt</span></header>
+    <p class="ptext">I need a gift for someone I barely know and I have almost nothing to work with.
+
+Here's everything I know: [write the three or four scraps you actually have — age-ish, how you know them, anything you've observed, even trivial]
+
+Budget: $[X]. It's for [office exchange / a new in-law / etc.].
+
+Give me 6 options that are genuinely safe but not boring. For each, tell me what it signals — I don't want anything that reads as romantic, as a joke at their expense, as religious, as a comment on their body or health, or as something I grabbed at a gas station.
+
+Then pick your single best one and tell me why. And tell me the one thing I should NOT get in this situation.</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <p>The &ldquo;what does it signal&rdquo; line is doing the heavy lifting. Left alone, AI will cheerfully suggest a bottle of wine for the guy who's been sober eighteen months, or a couples' cooking class for the aunt whose husband died in March. It doesn't know. It can't know. <strong>You know.</strong></p>
+  <p>Two other things it does badly. It will occasionally invent a product that doesn't exist, described in loving detail, with a price — search the actual name before you get attached. And it has defaults it's weirdly proud of: the personalized star map of the night you met, the cutting board with your coordinates engraved on it. If you're seeing those, you haven't given it enough about the person yet. Go back and add the squirrel.</p>
+
+  <h3>The ledger that saves you in 2027</h3>
+  <p>Last piece. Thirty seconds a year. When you're done buying, paste it back.</p>
+
+  <article class="prompt c-amber">
+    <header><span class="num">05</span><span class="plabel">The running record</span></header>
+    <p class="ptext">Add this to my gift record: [year], then for each person — name, what I gave them, what it cost, and whether they seemed to actually like it.
+
+Keep this as a running list going forward. When I ask for gift ideas for someone next year, check this record first and never suggest a repeat or a close cousin of something I've already given them.</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <p>That's how 2027 stops being the second year of the same candle. And it's how you find out the cheap one worked — you'll look back and see that the $30 knife sharpening got mentioned at two more family dinners, and the expensive thing is in a closet.</p>
+</section>
+
+<div class="band"><div class="wrap">
+  <p class="kick">Part Two</p>
+  <h2>Thanksgiving dinner</h2>
+  <p>Christmas you solve by yourself, quietly, on your phone, with months of warning. Thanksgiving you solve in front of everybody, in one oven, in a four-hour window.</p>
+  <p style="margin-top:14px;font-style:italic;font-size:15px">Doing Christmas dinner instead? Every prompt below works the same — swap the word &ldquo;Thanksgiving&rdquo; and swap the turkey for whatever you're making.</p>
+</div></div>
+
+<section class="wrap">
+  <h2>Your table has fourteen opinions at it</h2>
+  <div class="cast">
+    <div class="who"><i style="background:#2FA39A"></i><b>PRIYA</b><span>vegetarian, 6 yrs</span></div>
+    <div class="who"><i style="background:#3D6FE0"></i><b>MARCY</b><span>gluten-free, real</span></div>
+    <div class="who"><i style="background:#FF6A4D"></i><b>DALE</b><span>no pepper. none.</span></div>
+    <div class="who"><i style="background:#F5A623"></i><b>HENRY</b><span>age 2½, eats beige</span></div>
+  </div>
+  <p>Fourteen people. Priya has been vegetarian for six years and has never once made it a thing, which somehow makes me <em>more</em> worried about getting it right. Marcy went gluten-free in March and mentions it. Dale &ldquo;doesn't do spicy,&rdquo; and by spicy he means black pepper. And Priya's boy Henry is two and a half and currently eats only beige — crackers, plain noodles, the inside of a roll, and, inexplicably, olives.</p>
+  <p>That's not a menu problem. That's a logistics problem wearing a menu costume. So don't ask for &ldquo;Thanksgiving recipes.&rdquo; You'll get a listicle. Ask it to solve <em>your</em> table.</p>
+
+  <article class="prompt c-teal">
+    <header><span class="num">06</span><span class="plabel">One meal, everybody fed</span></header>
+    <p class="ptext">I'm hosting Thanksgiving dinner for 14 people and I want one meal that works for everyone — not separate meals. Here's my crowd:
+— 1 vegetarian (eats dairy and eggs)
+— 1 gluten-free (real sensitivity, not a preference — no cross-contamination)
+— 1 adult who genuinely dislikes any heat, including black pepper
+— 1 toddler who currently only eats plain, mild, soft foods
+— 10 people who will eat anything
+
+I'm roasting a turkey. I have one standard oven, four stovetop burners, a slow cooker, and a microwave. I'm a decent but not fancy cook. I don't want to make anything that has to be assembled at the last second while people are standing in my kitchen talking to me.
+
+Build me a menu where most dishes are naturally safe for most people. For each dish, tell me: who at my table can eat it, whether it can be made 1–2 days ahead, and whether it needs the oven. Flag any dish where one small swap makes it work for everyone — I'd rather swap an ingredient than add a dish. Keep it to 6–7 dishes total plus dessert. Ask me questions first if you need to.</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <p>What comes back is usually smarter than what I'd have come up with alone. Gravy thickened with cornstarch instead of flour, so it's not &ldquo;the gluten-free gravy,&rdquo; it's just <em>the</em> gravy. Green beans with garlic and lemon instead of a cream-of-something casserole, which quietly solves Marcy, Priya, Dale and Henry all at once.</p>
+  <p>And it'll tell you the truth about the dish that can't be saved: my mother's sausage dressing is not going to become vegetarian. Make a small second pan. One extra pan is not four dinners.</p>
+
+  <h3>The list that already knows you hate the store</h3>
+  <p>Once you have the menu, don't write a shopping list. Hand the menu <em>back</em> and make it build the list in reverse — grouped by where things physically live in the store.</p>
+
+  <article class="prompt c-blue">
+    <header><span class="num">07</span><span class="plabel">The list, built backwards</span></header>
+    <p class="ptext">Here's my final menu for 14 people: [paste your menu here].
+
+Build me a single consolidated shopping list. Rules:
+1. Combine duplicates across recipes — if three dishes need butter, give me one total amount in sticks.
+2. Organize by store section in this order: produce, meat/seafood, dairy, bakery, canned and dry goods, spices, frozen, other.
+3. Give real quantities I can shop with (3 lbs, 2 bunches, 1 quart), not "some."
+4. Put a separate short list at the bottom of things I probably already own — check these before you buy.
+5. Mark anything that must be bought in the last 2 days with FRESH, and anything I can buy now with ANYTIME.
+6. Note the two or three items most likely to be sold out during Thanksgiving week, and what to substitute.
+
+Assume generous portions and that people will take leftovers home.</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <p>You will walk the dairy case once. Once. After twenty years of walking it like a man who lost his car. The &ldquo;probably already own&rdquo; list is the sleeper hit — it's the reason you won't come home with your fifth jar of ground sage.</p>
+
+  <h2 style="margin-top:1.6em">The oven is in charge and it's time somebody said so</h2>
+  <p>Everything wants 350 degrees at the same time. The turkey needs to come out and sit for forty minutes. The rolls want a hot oven for twelve minutes at the exact moment you're trying to get the potatoes warm. And you have one oven, four burners, and a brother-in-law hovering.</p>
+  <p>This is the single most impressive thing AI does for a home cook, and almost nobody thinks to ask for it.</p>
+
+  <article class="prompt c-coral">
+    <header><span class="num">08</span><span class="plabel">The reverse-timed schedule</span></header>
+    <p class="ptext">I need a reverse-timed cooking schedule for Thanksgiving dinner. I want to sit down and eat at 4:00 PM.
+
+My equipment: ONE standard oven, 4 stovetop burners, 1 slow cooker, 1 microwave. That's it. No second oven, no warming drawer.
+
+What I'm making: 14 lb turkey (roasted, unstuffed) · stuffing in a 9x13 · mashed potatoes (6 lbs) · roasted green beans · sweet potato casserole 9x13 · store-bought dinner rolls · pie baked the day before.
+
+Build me a minute-by-minute plan working backwards from 4:00 PM, as a simple timeline I can tape to a cabinet. Requirements:
+— Every oven item needs a temperature and a time slot. Tell me explicitly when two things can share the oven and when they can't.
+— Build in the turkey's rest time and tell me what goes in the oven during it.
+— Tell me what to cook on the stovetop or in the slow cooker instead, to get things off the oven's back.
+— List everything I can make 1–2 days ahead, and exactly how to reheat it and when.
+— Mark the 3 steps where being late actually ruins something, versus steps where 15 minutes doesn't matter.
+— Tell me the latest possible moment I can start each dish and still eat at 4:00.
+— End with a 20-minute "all hands" window — the final sprint and what each item needs in it.
+
+Then tell me the one dish in this plan most likely to blow up my timeline, and what to do about it.</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <h3>What you get back</h3>
+  <p class="legend"><span><i style="background:#F5A623"></i>oven</span><span><i style="background:#2FA39A"></i>stovetop</span><span><i style="background:#FF6A4D"></i>resting</span></p>
+  <div class="tl">
+    <div class="slot"><div class="t">11:40</div><div class="ev ov"><b>Turkey in</b><span>350°, unstuffed, ~2h45m</span></div></div>
+    <div class="slot rest"><div class="t">2:25</div><div class="ev"><b>Turkey out. Tent it. Walk away.</b><span>It needs 40 minutes — and the oven is now free</span></div></div>
+    <div class="slot"><div class="t">2:30</div><div class="ev ov"><b>Stuffing + sweet potato in</b><span>Oven up to 375° · both together</span></div></div>
+    <div class="slot"><div class="t">3:10</div><div class="ev st"><b>Potatoes on the stove</b><span>Hold in the slow cooker if you run ahead</span></div></div>
+    <div class="slot"><div class="t">3:30</div><div class="ev st"><b>Green beans on</b><span>Stovetop, not oven — that's the whole trick</span></div></div>
+    <div class="slot"><div class="t">3:45</div><div class="ev ov"><b>Rolls in</b><span>Nine minutes, and they lie about it</span></div></div>
+    <div class="slot eat"><div class="t">4:00</div><div class="ev"><b>Everybody sits down</b><span>You've been done for fifteen minutes</span></div></div>
+  </div>
+  <div class="note good"><svg viewBox="0 0 24 24" fill="#2E7D5B"><circle cx="12" cy="12" r="9" fill="none" stroke="#2E7D5B" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="#2E7D5B" stroke-width="2" fill="none" stroke-linecap="round"/></svg><span>The bird resting is free oven time. Nobody ever told you that.</span></div>
+  <p>The first time I did this I stood in my kitchen at 3:15 with nothing to do, and I genuinely thought I'd forgotten something.</p>
+
+  <h2 style="margin-top:1.6em">Now the part where I tell you it lies</h2>
+  <p>It will hand you that schedule with total confidence, and some of the numbers will be wrong. It will tell you a 14-pound turkey takes two hours. It will get thawing time wrong — and thawing is the one that ruins Thanksgiving three days before Thanksgiving.</p>
+  <div class="note warn"><svg viewBox="0 0 24 24" fill="#FF6A4D"><rect x="10" y="6" width="4" height="14" rx="2"/><circle cx="12" cy="6" r="4.5"/></svg><span>Anything with raw poultry in it, you verify yourself. 165° in the thickest part of the thigh is the truth. A chatbot is not the truth.</span></div>
+  <p>Which brings me back to Dale. He broke his meat thermometer in July and complained for an hour, and it's sitting in the gift notebook waiting for December. Buy him one. Then buy yourself one, because it's the only thing standing between you and a bad Thursday.</p>
+  <p>Use AI for the <em>shape</em> of the day — the sequence, the hand-offs, the stuff you'd forget. Use a thermometer for the bird. That division of labor has never once failed me.</p>
+
+  <h3>The group text that doesn't read like a deployment order</h3>
+  <p>Asking for help in writing is weirdly hard, because &ldquo;Marcy, you're on green beans&rdquo; lands like a summons. Ask for the tone, not just the text.</p>
+
+  <article class="prompt c-mauve">
+    <header><span class="num">09</span><span class="plabel">Ask for the tone</span></header>
+    <p class="ptext">Write a warm, casual group text asking 6 family members to each bring one dish to my Thanksgiving dinner. I want to sound grateful, not bossy — like I'm glad they're coming, not managing a crew. Short sentences. No exclamation point pileup. Give people an easy out if they'd rather just bring wine. Mention that two guests are gluten-free and vegetarian without making it a lecture, and ask people to text me what they're bringing so we don't end up with four pies. Assign: rolls, a green vegetable, a pie, a salad, ice, and one person's choice. Under 120 words.</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <p>Here's one that worked:</p>
+  <div class="msgs">
+    <div class="msg">Okay — 4:00 on Thursday, doors open at 3. I've got the turkey, the potatoes and the gravy handled, so nobody panic.</div>
+    <div class="msg">If you want to bring something, here's what would genuinely help: Dale, rolls. Marcy, a green vegetable. Marilyn, your pie. Tucker, a salad. Kev, ice, and more than you think. Priya, anything you want — surprise us.</div>
+    <div class="msg">Heads up that we've got gluten-free and vegetarian at the table, so if your dish is either one, say so and I'll label it.</div>
+    <div class="msg">And if this week is too much, bring yourself and a bottle of something. That's a full contribution. See you Thursday.</div>
+  </div>
+  <p>Nobody reads that as a general. One person will still bring a second pie.</p>
+
+  <h3>It's 2 o'clock and it's going sideways</h3>
+  <p>It will. If it's a timing problem, type the truth and ask for triage:</p>
+
+  <article class="prompt c-blue">
+    <header><span class="num">10</span><span class="plabel">The 2pm triage</span></header>
+    <p class="ptext">It's 2:10. My turkey is 40 minutes behind, the potatoes aren't started, and 14 people arrive at 3. I have one oven. What do I cut, what do I delay, and what do I do right now, in order?</p>
+    <button class="copy">Copy this prompt</button>
+  </article>
+
+  <p>It'll tell you to put the rolls on the counter and forget them, move the green beans to the stovetop, and that mashed potatoes hold beautifully in a slow cooker — which is true, and which you didn't know at 2:09.</p>
+  <p>If it's a <em>you</em> problem — and sometimes it is — the move is this: pour a glass of something, put the rolls out early, and let people eat crackers for twenty minutes.</p>
+  <p>Nobody remembers the gravy. They remember that the house smelled good and you weren't miserable. That's the whole point of the oven schedule. Not a better dinner. A host who's actually at it.</p>
+</section>
+
+<div class="outro"><div class="wrap">
+  <p class="kick" style="color:var(--amber)">One less thing</p>
+  <h2>Two prompts tonight</h2>
+  <p>The gift notebook, half-remembered and sloppy. The menu, with your actual people and their actual complications typed out in plain words.</p>
+  <p>The candle, the second pie, the five jars of sage, the thing you knew in August and lost by November — none of that was ever a character flaw. It was just a lot, held in one head, with no place to put it.</p>
+  <p style="color:#fff;font-weight:700">Now there's a place to put it.</p>
+</div></div>
+
+<section class="wrap" style="padding-top:30px">
+  <div class="printbar"><svg viewBox="0 0 24 24" fill="none" stroke="#8A93A6" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="6"/><path d="M6 14H4a2 2 0 01-2-2V11a2 2 0 012-2h16a2 2 0 012 2v1a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg><span><a href="/One_Less_Thing.pdf">Download the printable PDF</a> — for the cabinet door, or for someone who'd rather hold it.</span></div>
+  <p style="text-align:center;margin:26px 0 0"><a href="/" style="color:var(--muted);font-weight:700;text-decoration:none">← All seventeen guides</a></p>
+</section>
+<p class="foot">Free, like the other sixteen · @ggbrent</p>
+
+<div class="toast" id="toast">Copied — now paste it into your AI</div>
+
+<script>
+(function(){
+  var toast = document.getElementById('toast'), timer;
+  function flash(){
+    toast.classList.add('show');
+    clearTimeout(timer);
+    timer = setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+  function fallback(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly','');
+    ta.style.cssText = 'position:absolute;left:-9999px;top:0';
+    document.body.appendChild(ta);
+    ta.select(); ta.setSelectionRange(0, text.length);
+    try { document.execCommand('copy'); } catch(e){}
+    document.body.removeChild(ta);
+  }
+  document.querySelectorAll('.prompt').forEach(function(card){
+    var btn = card.querySelector('.copy');
+    var text = card.querySelector('.ptext').textContent.trim();
+    btn.addEventListener('click', function(){
+      var done = function(){
+        btn.classList.add('done');
+        btn.textContent = '✓  Copied';
+        flash();
+        setTimeout(function(){
+          btn.classList.remove('done');
+          btn.textContent = 'Copy this prompt';
+        }, 2400);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, function(){ fallback(text); done(); });
+      } else { fallback(text); done(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
