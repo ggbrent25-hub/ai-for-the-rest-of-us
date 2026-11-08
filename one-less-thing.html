@@ -126,6 +126,24 @@ h3{font-size:20px; margin:2em 0 .5em}
 .foot{text-align:center; padding:26px 0 40px; font-size:12.5px; letter-spacing:.16em;
       color:var(--muted); text-transform:uppercase; font-weight:700}
 hr{border:0; border-top:1px solid var(--line); margin:36px 0}
+.topbar{background:#0F1730;padding:11px 0}
+.topbar a{color:#9FAACB;text-decoration:none;font-size:12.5px;font-weight:800;letter-spacing:.16em;
+  text-transform:uppercase;display:inline-flex;align-items:center;gap:8px}
+.next{background:#F5F2EE;padding:44px 0 50px}
+.next .kick2{letter-spacing:.22em;font-size:11.5px;font-weight:800;color:var(--coral);
+  text-transform:uppercase;margin:0 0 12px}
+.next h2{font-size:28px;margin:0 0 .5em}
+.cta{display:block;background:var(--coral);color:#fff;text-decoration:none;font-weight:800;
+  font-size:17px;text-align:center;padding:18px;border-radius:13px;margin:22px 0 0;
+  box-shadow:0 6px 18px rgba(255,106,77,.28)}
+.book{display:flex;gap:16px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:18px;margin-top:16px;text-decoration:none;color:inherit}
+.book .sp{flex:0 0 54px;height:72px;border-radius:4px;background:linear-gradient(135deg,#1B2447,#2C3A66);
+  display:grid;place-items:center;color:var(--amber);font-size:8.5px;font-weight:800;letter-spacing:.05em;
+  text-align:center;line-height:1.3;padding:6px}
+.book b{display:block;color:var(--ink);font-size:16.5px;margin-bottom:3px}
+.book i{font-size:14.5px;color:var(--muted);line-height:1.45;display:block;font-style:normal}
+.book u{color:var(--coral);font-weight:800;font-size:15px;margin-top:7px;display:block;text-decoration:none}
 .printbar{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);
   border-radius:14px;padding:13px 16px;margin:4px 0 6px;font-size:15px;color:var(--body);line-height:1.45}
 .printbar a{color:var(--coral);font-weight:800;text-decoration:none}
@@ -141,6 +159,7 @@ hr{border:0; border-top:1px solid var(--line); margin:36px 0}
 <body>
 
 <div class="bar"></div>
+<div class="topbar"><div class="wrap"><a href="/">&larr;&nbsp; AI for the Rest of Us</a></div></div>
 <header class="hero">
   <svg class="garland" viewBox="0 0 800 86" preserveAspectRatio="none" aria-hidden="true">
     <path d="M-10 6 Q400 70 810 6" stroke="#2E7D5B" stroke-width="13" fill="none" stroke-linecap="round"/>
@@ -446,8 +465,20 @@ Then tell me the one dish in this plan most likely to blow up my timeline, and w
 
 <section class="wrap" style="padding-top:30px">
   <div class="printbar"><svg viewBox="0 0 24 24" fill="none" stroke="#8A93A6" stroke-width="2" stroke-linecap="round"><rect x="6" y="3" width="12" height="6"/><path d="M6 14H4a2 2 0 01-2-2V11a2 2 0 012-2h16a2 2 0 012 2v1a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg><span><a href="/One_Less_Thing.pdf">Download the printable PDF</a> — for the cabinet door, or for someone who'd rather hold it.</span></div>
-  <p style="text-align:center;margin:26px 0 0"><a href="/" style="color:var(--muted);font-weight:700;text-decoration:none">← All seventeen guides</a></p>
 </section>
+
+<div class="next"><div class="wrap">
+  <p class="kick2">New here?</p>
+  <h2>There are sixteen more of these.</h2>
+  <p>I'm Brent. I write free, plain-English AI guides for people who aren't techies &mdash; this is number seventeen. No jargon, nothing to sign up for, and you can start anywhere.</p>
+  <a class="cta" href="/">All 17 guides &mdash; free &rarr;</a>
+  <a class="book" href="https://payhip.com/BrentBooher/collection/ai-for-the-rest-of-us">
+    <span class="sp">THE<br>COMPLETE<br>COLLECTION</span>
+    <span><b>Rather have them all in one book?</b>
+      <i>Every guide, chapter pages, and the printable Fridge-Door Sheet. 99 pages, one file.</i>
+      <u>$14.99 &rarr;</u></span>
+  </a>
+</div></div>
 <p class="foot">Free, like the other sixteen · @ggbrent</p>
 
 <div class="toast" id="toast">Copied — now paste it into your AI</div>
